@@ -1,0 +1,202 @@
+[
+  {
+
+    "id": 20,
+    "linkText": "Home",
+    "child": true,
+    "submenu": [
+        {
+            "id": 1.1,
+            "link": "/home-v2",
+            "linkText": "HOME"
+        },
+        {
+            "id": 1.2,
+            "link": "/",
+            "linkText": ""
+        }
+
+    ]
+},
+    {
+
+      "id": 1,
+      "linkText": "Dashboard",
+      "child": true,
+      "submenu": [
+          {
+              "id": 1.1,
+              "link": "/",
+              "linkText": "Statistics"
+          },
+          {
+              "id": 1.2,
+              "link": "/historics",
+              "linkText": "Historics"
+          }
+
+      ]
+  },
+    {
+        "id": 4,
+        "linkText": "Reservation",
+        "child": true,
+        "submenu": [
+            {
+                "id": 4.1,
+                "linkText": "Add Reservation",
+                "child": true,
+                "submenu": [
+                  {
+                    "id": 4.11,
+                    "link": "/AddReservationRestaurantsClient",
+                    "linkText": "Add Res-Restau Client "
+                },
+                    {
+                        "id": 4.11,
+                        "link": "/AddReservationRestaurants",
+                        "linkText": "Add Res-Restau Admin "
+                    },
+                    {
+                        "id": 4.12,
+                        "link": "/AddReservationFoyerClient",
+                        "linkText": "Add Res-Foyer Client "
+                    },
+                    {
+                        "id": 4.13,
+                        "link": "/AddReservationFoyer",
+                        "linkText": "Add Res-Foyer Admin"
+                    }
+                ]
+            },
+            {
+              "id": 4.1,
+              "linkText": "My Reservations Lists",
+              "child": true,
+              "submenu": [
+                {
+                  "id": 4.11,
+                  "link": "/ReservationRestaurantsClient",
+                  "linkText": "Reservation Restaurants "
+              },
+                  {
+                      "id": 4.11,
+                      "link": "/ReservationFoyersClient",
+                      "linkText": "Reservation Foyers "
+                  },
+                  {
+                      "id": 4.12,
+                      "link": "/SingleReservationFoyerClient",
+                      "linkText": "Single Reservation Foyers "
+                  }
+              ]
+            }
+        ]
+    },
+   {
+        "id": 5,
+        "linkText": "Block",
+        "child": true,
+        "submenu": [
+            {
+                "id": 5.1,
+                "linkText": "Block Grid",
+                "child": true,
+                "submenu": [
+
+                    {
+                        "id": 5.12,
+                        "link": "/car-grid-left",
+                        "linkText": "Update Block"
+                    },
+                    {
+                        "id": 5.13,
+                        "link": "/car-grid-right",
+                        "linkText": "Update Room"
+                    },
+                    {
+                      "id": 7.4,
+                      "link": "/booking",
+                      "linkText": "Add Block"
+                  }
+                ]
+            },
+            {
+                "id": 5.2,
+                "link": "/car-details/1",
+                "linkText": "List rooms"
+            },
+            {
+              "id": 5.2,
+              "link": "/blog-grid",
+              "linkText": "List block"
+          }
+        ]
+    },
+    {
+        "id": 6,
+        "linkText": "RESTAURATION",
+        "child": true,
+        "submenu": [
+            {
+                "id": 6.1,
+                "linkText": "MENU",
+                "link": "/menu-grid",
+                "submenu": [
+
+                ]
+            },
+            {
+                "id": 6.2,
+                "linkText": "MEAL",
+                "link": "/meal-grid",
+                "submenu": [
+
+
+                ]
+            }
+        ]
+    },
+
+    {
+      "id": 8,
+      "linkText": "Subscription",
+      "child": true,
+      "submenu": [
+          {
+              "id": 8.1,
+              "link": "/academic-home-subscription",
+              "linkText": "Academic home subscription"
+          },
+          {
+              "id": 8.2,
+              "link": "/restaurant-subscription",
+              "linkText": "restaurant subscription"
+          }
+      ]
+  },
+  {
+    "id": 3,
+    "linkText": "Claims",
+    "child": true,
+    "submenu": [
+        {
+            "id": 3.1,
+            "linkText": "List of claims",
+            "child": true,
+            "submenu": [
+                {
+                    "id": 3.11,
+                    "link": "/claim-list",
+                    "linkText": "show"
+                },
+                {
+                    "id": 3.12,
+                    "link": "/claim-list-admin",
+                    "linkText": "List"
+                }
+            ]
+        }
+    ]
+}
+]

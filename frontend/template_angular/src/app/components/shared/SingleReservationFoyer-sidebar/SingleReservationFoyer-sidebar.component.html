@@ -1,0 +1,46 @@
+<div class="sidebar">
+    <div class="sidebar_widgets mb-xl-30">
+        <div class="widget_title bg-custom-blue">
+            <h5 class="no-margin text-custom-white">Search</h5>
+        </div>
+        <form (ngSubmit)="chercher2dates()" >
+            
+            <div class="form-group">
+                <label class="fs-14 text-custom-black fw-500">Date de début</label>
+                <div class="input-group group-form">
+                    <input type="date" name="dd" [(ngModel)]="dd" class="form-control form-control-custom datepickr" placeholder="mm/dd/yy" >
+                    <span class="input-group-append">
+                        <i class="far fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="fs-14 text-custom-black fw-500">Date de la fin</label>
+                <div class="input-group group-form">
+                    <input type="date" name="df"  [(ngModel)]="df" class="form-control form-control-custom datepickr" placeholder="mm/dd/yy" >
+                    <span class="input-group-append">
+                        <i class="far fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="fs-14 text-custom-black fw-500">Show only active</label>
+                <div class="input-group group-form">
+                    <input type="checkbox" name="active"  [(ngModel)]="active"   >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="fs-14 text-custom-black fw-500">Username</label>
+                <div class="input-group group-form">
+                    <input type="texte" name="dd" [(ngModel)]="username" class="form-control form-control-custom datepickr" placeholder="username" >
+                    
+                </div>
+                </div>
+            <button type="submit" class="btn-first btn-submit full-width btn-height">Search Now</button>
+        </form>
+    </div>
+    
+        
+      
+       
+  

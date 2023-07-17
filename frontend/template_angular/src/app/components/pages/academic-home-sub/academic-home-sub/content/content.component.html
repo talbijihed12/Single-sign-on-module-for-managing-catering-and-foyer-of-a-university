@@ -1,0 +1,83 @@
+<!--p>content works!</p>
+
+<ul>
+    <li *ngFor="let element of liste ">{{ element.title }}</li>
+</ul-->
+<div class="col-lg-8">
+  <div class="row">
+      <div class="col-12">
+<div class="container" style="margin-bottom: 20%; margin-top: 10%;">
+    <div class="row mt-5 mb-5">
+        <div class="col-md-6"></div>
+        <div class="col-md-10">
+
+            <button class="btn-second btn-small" (click)="addSubscription(content)">Create Subscription</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let element of liste ">
+            <div class="hotel-grid-wrapper car-grid bx-wrapper" style="width: 20rem;"  style="margin-bottom: 10px;" >
+                <div class="card-body" style="margin-top: 10px;">
+                  <h5  class="text-light-dark">{{ element.typeFoyer }}</h5>
+
+                  <span><strong>Started At: </strong> <h6> {{element.dateStart}} </h6></span><br>
+                  <span><strong>Finished At: </strong><h6>{{element.dateEnd}}</h6> </span>
+                  <span><strong>expired : </strong><h6>{{element.expired}}</h6></span>
+
+
+                  <img src="..\assets\images\mot-bienvenue-disponible-lancement-ouvert.jpg" class="full-width" [alt]="">
+
+                </div> :&nbsp;
+                <div class="card-footer">
+                    <button class="btn-second btn-submit yellow">Update</button>
+                    <button class="btn-second btn-small" (click)="remove(element.id)">Delete</button>
+                </div>
+              </div>
+
+
+      </div>
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Subscription Request</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="mb-3">
+                <label>Room </label>
+                <div class="input-group">
+                  <input type="text" class="form-control"
+                [(ngModel)]="block.idR" name="roomId"/>
+
+
+				</div>
+                <label>Academic Home Type</label>
+                <div class="input-group">
+					<select class="form-control"   [(ngModel)]="block.typeFoyer" name="foyerType">
+                        <option value="ANNUAL">Annual</option>
+                        <option value="TRIMESTER">Trimester</option>
+                        <option value="SEMESTER">Semster</option>
+
+                    </select>
+                    <br>
+				</div>
+        <br>
+      <div *ngIf="block.typeFoyer === 'ANNUAL'"> <br>
+      Amount : 1000 Dt</div>
+      <div *ngIf="block.typeFoyer === 'TRIMESTER'"> <br>
+        Amount : 300 Dt</div>
+      <div *ngIf="block.typeFoyer === 'SEMESTER'"> <br>
+        Amount : 550 Dt</div>
+
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="saveSub()">Save</button>
+	</div>
+</ng-template>
+

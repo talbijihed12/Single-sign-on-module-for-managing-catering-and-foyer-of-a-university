@@ -1,0 +1,66 @@
+<section class="section-padding bg-light-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="listing-top-heading mb-xl-20">
+                    <h6 class="no-margin text-custom-black">Showing {{menus.length}} Results of menus </h6>
+                    <div class="sort-by">
+                        <span class="text-custom-black fs-14 fw-600">Sort by</span>
+                        <div class="group-form">
+                            <select class="form-control form-control-custom custom-select" nice-select>
+                                <option>A to Z</option>
+                                <option>Z to A</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Data -->
+            <div class="col-lg-4 col-md-6" *ngFor="let item of menus">
+                <div class="menus-grid mb-xl-30">
+                    <div class="menus-grid-wrapper bx-wrapper">
+                        <div class="image-sec animate-img">
+                            <a routerLink="/menu-details/{{item.id}}">
+                                <img src="../assets/images/menuu.jpg" class="full-width" [alt]="item.name">
+                            </a>
+                        </div>
+                        <div class="menus-grid-caption padding-20 bg-custom-white p-relative">
+                            <div class="heading-sec">
+                                <div class="left-side">
+                                    <i class="fas fa-solid fas fa-utensils"></i>
+                                    <div class="title">
+                                        <h4 class="fs-16">
+                                            <a routerLink="/menu-details/{{item.id}}"
+                                                class="text-custom-black">{{item.name}}</a>
+                                        </h4>
+                                        <span class="text-light-dark"
+                                               >{{ item.typeMenu }}
+                                                </span>
+                                    </div>
+                                </div>
+                                <div class="right-side">
+                                    <span class="price">{{item.typeEmplacement }}</span>
+                                </div>
+                            </div>
+                            <div class="action">
+<hr>
+                                <a routerLink="/menu-details/{{item.id}}" class="btn-first btn-submit">Détail</a>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Data -->
+        </div>
+        <!-- <div class="row">
+            <div class="col-12">
+                <nav class="pagination_layout section-padding-top">
+                    <ul class="pagination justify-content-center">
+                        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        -->
+    </div>
+</section>

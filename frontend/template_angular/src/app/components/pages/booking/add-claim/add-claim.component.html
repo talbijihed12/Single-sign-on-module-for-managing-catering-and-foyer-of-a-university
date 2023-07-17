@@ -1,0 +1,98 @@
+<div class="tab-inner">
+    <div class="row" style="width: 1600px;">
+        <div class="col-lg-8">
+            <h5 class="text-custom-black">Enter your claim</h5>
+            <form class="row mb-md-80" #f="ngForm" (ngSubmit)="f.form.valid && onAddClaim()" label="Click Here Geek" class="form-horizontal">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="fs-14 text-custom-black fw-500">Type of Claim</label>
+                        <div class="group-form">
+                            <select class="custom-select form-control form-control-custom {{f.submitted && categorie.invalid? 'is-invalid': ''}}"
+                            ngModel name="categorie" #categorie="ngModel" [(ngModel)]="claim.typeReclamation" required nice-select >
+                                <option value="RESTAURANT">RESTAURANT</option>
+                                <option value="ACADEMIC_HOME">ACADEMIC HOME</option>
+                                <option value="SUBSCRIPTION">SUBSCRIPTION</option>
+                                <option value="RESERVATION">RESERVATION</option>
+                                <option value="FORUM">FORUM</option>
+                            </select>
+                            <div class="col-md-3 "></div>
+                    <div class="invalid-feedback">
+                      Type of claim required
+                    </div>
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="fs-14 text-custom-black fw-500">Title</label>
+                        <input type="text" class="form-control form-control-custom {{f.submitted && title.invalid? 'is-invalid': ''}}"
+                        ngModel name="title" #title="ngModel" [(ngModel)]="claim.title" placeholder="Title" required>
+                        <div class="col-md-3 "></div>
+                        <div class="invalid-feedback">
+                          Title required
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="fs-14 text-custom-black fw-500">Description</label>
+                        <textarea class="form-control form-control-custom {{f.submitted && description.invalid? 'is-invalid': ''}}"
+                         ngModel name="description" #description="ngModel" [(ngModel)]="claim.description" placeholder="Description" rows="9"  placeholder="Contenu.." required></textarea>
+                     <div class="invalid-feedback">
+                        Description required
+                     </div>
+                    </div>
+                </div>
+                
+                <!--<div class="col-md-12">
+                    <div class="form-group">
+                        <label class="fs-14 text-custom-black fw-500">File</label>
+                   
+                      <input class="form-control form-control-custom col-sm-12"  readonly  id="appendedInputButton" name=""><span class="input-group-append">
+                     <button class="btn btn-primary"  type="button">
+            
+                    <i class="fa fa-paperclip"></i>
+                    </button></span>
+            
+                <input #inputFile type="file" multiple hidden>
+              </div>
+              </div>-->
+              
+
+              <div class="col-md-12">
+                <div class="form-group">
+                    <label class="fs-14 text-custom-black fw-500">File</label>
+                
+        
+        
+        
+                  <input class="form-control form-control-custom "  readonly  id="appendedInputButton" name="fileTxt" [(ngModel)]="fileTxt"  >
+                  <span class="input-group-append">
+                     <button class="btn btn-primary"  type="button" (click)="inputFile.click()">
+        
+                        <i class="fa fa-paperclip"></i>
+                    </button>
+                  </span>
+
+        
+              
+            <input #inputFile type="file"  (change)="selectFile($event)" multiple hidden>
+            </div>
+        </div>
+
+
+                <div class="col-12">
+                    <hr class="mt-0">
+                
+                    <button type="reset" class="btn-first btn-danger">Cancel</button>
+                    <button type="submit" class="btn-first btn-submit">Add Claim</button>
+
+                </div>
+            </form>
+        </div>
+       
+    </div>
+</div>

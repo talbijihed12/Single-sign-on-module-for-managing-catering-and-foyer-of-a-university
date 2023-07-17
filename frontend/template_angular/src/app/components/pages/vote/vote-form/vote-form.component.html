@@ -1,0 +1,78 @@
+<div class="section-padding contact-form-map">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+ <div class="listing-top-heading mb-xl-20" >
+          <h6 class="no-margin text-custom-black">
+            Showing {{ votes.length }} votes
+          </h6>
+          <div class="sort-by">
+            <span class="text-custom-black fs-14 fw-600">Sort by</span>
+            <div class="group-form">
+              <select
+                class="form-control form-control-custom custom-select"
+                nice-select
+              >
+                <option>UPVOTE</option>
+                <option>DOWNVOTE</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="section-header">
+          <div class="section-heading">
+            <h3 class="text-custom-black">List of votes</h3>
+
+            <div class="section-description">
+              <p class="text-light-dark">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-6" *ngFor="let item of votes">
+
+            <div class="card">
+              <span class="badge badge-warning">{{ item.voteType }}</span>
+              <div class="card-body">
+                <h5 class="mb-1">
+                  <p class=" mb-1">{{ item.meal.name }}</p>
+                  <p class="mb-1">Category :{{ item.meal.typeCategory }}</p>
+                </h5>
+                <h5 class="mb-1">
+                  <p class=" mb-1">{{ item.meal.menu.name }}</p>
+                  <p class="mb-1">
+                    Type of menu : {{ item.meal.menu.typeMenu }}
+                  </p>
+                  <p class="mb-1">{{ item.meal.menu.typeEmplacement }}</p>
+                </h5>
+
+                <hr />
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button
+                    (click)="deleteVote(item.voteId)"
+                    style="cursor: pointer"
+                    class="btn btn-outline-danger btn-sm"
+                  >
+                    Delete
+                    <i
+                      style="cursor: pointer"
+                      class="fas fa-sharp fas fa-solid fas fa-trash"
+                      style="font-size: 15px; color: #080808"
+                    >
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

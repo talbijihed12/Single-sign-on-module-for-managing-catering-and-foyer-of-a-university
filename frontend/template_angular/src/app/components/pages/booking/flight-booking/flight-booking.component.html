@@ -1,0 +1,94 @@
+<div class="tab-inner">
+  <div class="row" style="width: 1600px;">
+      <div class="col-lg-8">
+          <h5 class="text-custom-black">Add Room</h5>
+          <form class="row mb-md-80" #f="ngForm" (ngSubmit)="f.form.valid && onAddRoom()" class="form-horizontal">
+
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <label class="fs-14 text-custom-black fw-500">Number</label>
+                      <input type="number" class="form-control form-control-custom {{f.submitted && number.invalid? 'is-invalid': ''}}"
+                      ngModel name="number" #number="ngModel" [(ngModel)]="room.number" placeholder="number" required>
+                      <div class="col-md-3 "></div>
+                      <div class="invalid-feedback">
+                          number required
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <label class="fs-14 text-custom-black fw-500">floor</label>
+                      <input type="text" class="form-control form-control-custom {{f.submitted && floor.invalid? 'is-invalid': ''}}"
+                      ngModel name="floor" #floor="ngModel" [(ngModel)]="room.floor" placeholder="floor" required>
+                      <div class="col-md-3 "></div>
+                      <div class="invalid-feedback">
+                          floor required
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <label class="fs-14 text-custom-black fw-500">nbrPlaces</label>
+                      <input type="number" class="form-control form-control-custom {{f.submitted ? 'is-invalid': ''}}"
+                      ngModel name="nbrPlace" #nbrPlace="ngModel" [(ngModel)]="room.nbrPlace" placeholder="nbrPlace" required>
+                      <div class="col-md-3 "></div>
+                      <div class="invalid-feedback">
+                          nbrPlaces required
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <label class="fs-14 text-custom-black fw-500">placesOccup</label>
+                      <input type="number" class="form-control form-control-custom {{f.submitted && placesOcc.invalid? 'is-invalid': ''}}"
+                      ngModel name="placesOcc" #placesOcc="ngModel" [(ngModel)]="room.placesOcc" placeholder="placesOccup" required>
+                      <div class="col-md-3 "></div>
+                      <div class="invalid-feedback">
+                          placesOccup required
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <label class="fs-14 text-custom-black fw-500">cleaningRoom</label>
+                      <input type="text" class="form-control form-control-custom {{f.submitted && cleaningRoom.invalid? 'is-invalid': ''}}"
+                      ngModel name="cleaningRoom" #cleaningRoom="ngModel" [(ngModel)]="room.cleaningRoom" placeholder="cleaningRoom" required>
+                      <div class="col-md-3 "></div>
+                      <div class="invalid-feedback">
+                          cleaningRoom required
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <li *ngFor="let room of blocklist">
+
+                    <input type="radio" name="block" value="{{room.idB}}"[(ngModel)]="roomid">
+                    <br>Bloc type : {{ room.type}}
+                    <br>Bloc Sexe : {{ room.sexe}}
+
+
+
+
+                </li>
+
+                </div>
+            </div>
+
+
+
+
+              <div class="col-12">
+                  <hr class="mt-0">
+
+                  <button type="reset" class="btn-first btn-danger">Cancel</button>
+                  <button type="submit" class="btn-first btn-submit">Add Room</button>
+
+              </div>
+          </form>
+      </div>
+
+  </div>
+</div>

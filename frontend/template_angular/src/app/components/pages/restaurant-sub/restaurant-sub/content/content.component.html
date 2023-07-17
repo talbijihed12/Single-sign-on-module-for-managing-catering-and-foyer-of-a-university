@@ -1,0 +1,113 @@
+<!--p>content works!</p>
+
+<ul>
+    <li *ngFor="let element of liste ">{{ element.title }}</li>
+</ul-->
+<div class="col-lg-8">
+  <div class="row">
+      <div class="col-12">
+<div class="container" style="margin-bottom: 20%; margin-top: 10%;">
+  <div class="row mt-5 mb-5">
+      <div class="col-md-6"></div>
+      <div class="col-md-10">
+          <button  class="btn-second btn-small" (click)="addSubscription(content)">Create Subscription</button>
+      </div>
+      <div class="col-md-1">
+        <input class="form-control form-control-custom" type="number"  [(ngModel)]="aa" >
+        <button  class="btn-second btn-small" (click)="addJeton()">Create Jeton</button>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4" *ngFor="let element of liste ">
+          <div class="hotel-grid-wrapper car-grid bx-wrapper" style="width: 18rem;"  style="margin-bottom: 10px;" >
+              <div class="card-body" style="margin-top: 10px;">
+                <h5  class="text-light-dark">{{ element.typeRestaurant }}</h5>
+                <span><strong>Started At: </strong><h6>{{element.dateStart}}</h6></span><br>
+                <span><strong>Finished At: </strong><h6>{{element.dateEnd}}</h6> </span>
+                <span><strong>expired : </strong><h6>{{element.expired}}</h6></span>
+                <span><strong>Jeton : </strong><h6>{{element.nbJeton}}</h6></span>
+
+
+                <img src="..\assets\images\delicieuse-cuisine-gout-concept-alimentaire.jpg" class="full-width" [alt]="">
+
+              </div>
+              <div class="card-footer">
+                  <button class="btn-second btn-submit yellow">Update</button>
+                  <button class="btn-second btn-small" (click)="remove(element.id)">Delete</button>
+
+              </div>
+
+            </div>
+            <input class="form-control form-control-custom" type="number" name="nbrJeton" [(ngModel)]="nbrJeton" >
+            <button type="submit" (click)="onButtonClick(element.username,1)"class="btn-first btn-submit full-width btn-height">Use Jeton and Show QR CODE</button>
+              <img *ngIf="imageUrl" [src]="imageUrl">
+      </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Subscription Request</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="mb-3">
+
+              <label>Restaurant Type</label>
+              <div class="input-group">
+        <select class="form-control"   [(ngModel)]="block.typeRestaurant" name="foyerType">
+                      <option value="ANNUAL">Annual</option>
+                      <option value="MONTHLY">Monthly</option>
+                      <option value="Weekly">Weekly</option>
+
+
+
+                  </select>
+                  <br>
+
+      </div>
+      <br>
+      <div *ngIf="block.typeRestaurant === 'ANNUAL'">Nombre Jeton : 1095 <br>
+      Amount : 400 Dt</div>
+      <div *ngIf="block.typeRestaurant === 'MONTHLY'">Nombre Jeton : 93 <br>
+        Amount : 30 Dt</div>
+      <div *ngIf="block.typeRestaurant === 'Weekly'">Nombre Jeton : 21 <br>
+        Amount : 7 Dt</div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="saveSub()">Save</button>
+</div>
+</ng-template>
+  <ng-template #nbJeton let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Jeton Request</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+
+                  <label>Academic Home Type</label>
+                  <div class="input-group">
+                    <div class="mb-3">
+                      <label>number Jeton</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control"
+                      [(ngModel)]="Jeton.numJeton" name="roomId"/>
+
+
+              </div>
+              </div>
+              </div>
+
+        </div>
+      </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="saveSub()">Save</button>
+</div>
+</ng-template>
+

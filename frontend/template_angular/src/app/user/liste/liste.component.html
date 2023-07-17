@@ -1,0 +1,71 @@
+<app-uheader></app-uheader>
+<section class="section-padding bg-light-white">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="listing-top-heading mb-xl-20">
+                  <h6 class="no-margin text-custom-black">Showing {{users.length}} Results of menus </h6>
+                  <h6>liste of users</h6>
+                  <div class="search">
+                      <input type="search" class="form-control" [(ngModel)]="searchText" placeholder="Search text">
+                  </div>
+              </div>
+          </div>
+          <!-- Data -->
+          <div class="col-lg-4 col-md-6" *ngFor="let user of users | pipe: searchText| paginate: { itemsPerPage: 9, currentPage: page }">
+              <div class="menus-grid mb-xl-30">
+                  <div class="menus-grid-wrapper bx-wrapper">
+                      <div class="image-sec animate-img">
+                          <a  routerLink="/details/{{user.id}}">
+                              <img src="../assets/images/585e4bcdcb11b227491c3396.png" class="full-width" [alt]="user.username">
+                          </a>
+                      </div>
+                      <div class="menus-grid-caption padding-20 bg-custom-white p-relative">
+                          <div class="heading-sec">
+                              <div class="left-side">
+
+                                  <div class="title">
+                                      <h4 class="fs-16">
+                                          <a  routerLink="/details/{{user.id}}"
+                                              class="text-custom-black">{{user.username}}</a>
+                                      </h4>
+
+                                  </div>
+                              </div>
+
+                          </div>
+                          <div class="action">
+<hr>
+                              <a routerLink="/update-by-admin/{{user.id}}" class="btn-first btn-submit">Update</a> &nbsp; &nbsp; &nbsp; &nbsp;
+                              <a (click)="onDelete(user.id)" class="btn-first btn-submit" style="border: 1px solid red; color: red;">delete</a>
+
+                            </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Data -->
+      </div>
+      <!-- <div class="row">
+          <div class="col-12">
+              <nav class="pagination_layout section-padding-top">
+                  <ul class="pagination justify-content-center">
+                      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+      -->
+      <div class="row">
+        <div class="col-12">
+            <nav class="pagination_layout section-padding-top">
+                <ul class="pagination justify-content-center">
+                    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                </ul>
+            </nav>
+        </div>
+    </div>
+  </div>
+</section>
+<app-ufooter></app-ufooter>
+

@@ -1,0 +1,146 @@
+<header class="header">
+    <!-- Topbar -->
+    <div class="topbar bg-custom-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="left-side">
+                        <ul class="custom-flex">
+                            <li>
+                                <a href="#" class="text-custom-white">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-custom-white">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-custom-white">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-custom-white">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="right-side">
+                        <ul class="custom-flex">
+                              <li>
+                                <button *ngIf="!isLoggedIn" (click)="login()"  class="text-custom-white">Login</button>
+                              </li>
+                            <li>
+                                <a  *ngIf="!isLoggedIn" routerLink="/sign-up" class="text-custom-white">Signup</a>
+                            </li>
+
+                            <li *ngIf="isLoggedIn" class="nav-item d-none d-md-block" ngbDropdown placement="bottom-end">
+                              <a
+                                ngbDropdownToggle
+                                class="nav-link waves-effect waves-dark "
+                                href="javascript:void(0)"
+                              >
+                              <img
+                                 src="assets/images/icons8-test-account-30.png"
+
+                                 class="rounded-circle"
+                                 width="31"
+                                />
+
+                                <span >{{username}}</span>
+                              </a>
+                              <div class="dropdown-menu-right" ngbDropdownMenu>
+                                <a class="dropdown-item" href="javascript:void(0)"> My Profile</a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item"  routerLink="/update"> Account Setting</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" *ngIf="isAdmin" routerLink="/liste">Liste of Users</a>
+                                <a class="dropdown-item" *ngIf="isAdmin" routerLink="/Menus">Menu</a>
+                                <a class="dropdown-item" *ngIf="isAdmin" routerLink="/meals">Meal</a>
+                                <a class="dropdown-item" *ngIf="isAdmin" routerLink="/liste">Liste of Users</a>
+                                <a class="dropdown-item" *ngIf="isAdmin" routerLink="/SingleReservationFoyer">Single Reservation Foyer List</a>
+                                <a class="dropdown-item" *ngIf="isAdmin" routerLink="/ReservationFoyers">Reservation Foyer List </a>
+                                <a class="dropdown-item" *ngIf="isAdmin" routerLink="/ReservationRestaurants">Reservation Restaurant List</a>
+                                <a class="dropdown-item" (click)="onDelete()"> Delete My Account</a>
+                                <a class="dropdown-item" (click)="logout()"> Logout</a>
+
+                              </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar -->
+    <!-- Navigation -->
+    <div class="navigation" [ngClass]="windowScrolled ? 'sticky':''">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="main-navigation">
+                        <div class="logo">
+                            <a routerLink="/">
+                                <img src="assets/images/toor-logo.png" class="img-fluid image-fit" alt="img">
+                            </a>
+                        </div>
+                        <div class="main-menu" [ngClass]="navMethod ? 'active' : ''">
+                            <div class="logo">
+                                <a routerLink="/">
+                                    <img src="assets/images/toor-logo.png" class="img-fluid image-fit" alt="img">
+                                </a>
+                            </div>
+                            <nav>
+                                <ul class="custom-flex">
+                                    <li class="menu-item" [ngClass]="item.child == true ? 'menu-item-has-children' : ''"
+                                        *ngFor="let item of navigation">
+                                        <a href="javascript:void(0)" (click)="trigger(item)" *ngIf="item.child"
+                                            class="text-light-dark">{{item.linkText}} <span class="arrow"></span></a>
+                                        <a routerLink="{{item.link}}" *ngIf="!item.child"
+                                            class="text-light-dark">{{item.linkText}}</a>
+                                        <ul class="sub-menu custom" *ngIf="item.child"
+                                            [ngClass]="item.open ? 'd-block' : ''">
+                                            <li class="menu-item"
+                                                [ngClass]="item.child == true ? 'menu-item-has-children' : ''"
+                                                *ngFor="let item of item.submenu">
+                                                <a href="javascript:void(0)" (click)="trigger(item)" *ngIf="item.child"
+                                                    class="text-custom-white">{{item.linkText}} <span
+                                                        class="arrow"></span></a>
+                                                <a routerLink="{{item.link}}" *ngIf="!item.child"
+                                                    class="text-custom-white">{{item.linkText}}</a>
+                                                <ul class="sub-menu custom" *ngIf="item.child"
+                                                    [ngClass]="item.open ? 'd-block' : ''">
+                                                    <li class="menu-item" *ngFor="let item of item.submenu">
+                                                        <a routerLink="{{item.link}}"
+                                                            class="text-custom-white">{{item.linkText}}</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="cta-btn">
+                                <a routerLink="/add-claim" class="btn-first btn-submit">Enter claim</a>
+                            </div>
+                        </div>
+                        <div class="hamburger-menu" (click)="toggleNav()">
+                            <div class="menu-btn" [ngClass]="navMethod ? 'active' : ''">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navigation -->
+</header>

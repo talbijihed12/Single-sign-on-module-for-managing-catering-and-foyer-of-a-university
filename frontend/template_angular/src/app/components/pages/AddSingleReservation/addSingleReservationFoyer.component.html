@@ -1,0 +1,120 @@
+<app-header></app-header>
+<app-breadcrumbs></app-breadcrumbs>
+<div >
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="quick-quote bx-wrapper padding-20 mb-xl-30">
+            <h5 class="text-custom-black">Add Single Reservation Foyer</h5>
+            
+            <form #f="ngForm" (ngSubmit)="ajouter()">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="fs-14 text-custom-black fw-500">
+                        dateStart : </label>
+                      <input class="form-control form-control-custom" type="date" name="dateStart" [(ngModel)]="singleReservationFoyer.dateStart" #dateStart="ngModel" required minlength="3">
+                        <div class="alert alert-danger" *ngIf="dateStart.touched && dateStart.invalid">
+                            <div *ngIf="dateStart.errors?.['required']">Title is required</div>
+                            <div *ngIf="dateStart.errors?.['minlength']">Title must have at least 3 characters</div>
+                        </div>
+            
+                        
+                            <label class="fs-14 text-custom-black fw-500">
+                         dateEnd : 
+                        </label>
+    <input class="form-control form-control-custom" type="date" name="dateEnd" [(ngModel)]="singleReservationFoyer.dateEnd" #dateEnd="ngModel" required min="1">
+    <div class="alert alert-danger" *ngIf="dateEnd.touched && dateEnd.invalid">
+    <div *ngIf="dateEnd.errors?.['required']">dateEnd is required</div>
+    <div *ngIf="dateEnd.errors?.['min']">dateEnd must a positive number</div>
+        </div>
+        username : <input class="form-control form-control-custom" type="text" name="username" #username="ngModel" [(ngModel)]="singleReservationFoyer.username" required min="1">
+    
+        <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+<div *ngIf="username.errors?.['required']">Quantity is required</div>
+    <div *ngIf="username.errors?.['min']">Quantity must be a number</div>
+    </div>
+    idRoom : <input class="form-control form-control-custom" type="number" name="idRoom" [(ngModel)]="singleReservationFoyer.idRoom" #idRoom="ngModel" required>
+    <div class="alert alert-danger" *ngIf="idRoom.touched && idRoom.invalid">
+
+    <div>room Id is required</div>
+    </div>
+   
+    <input type="submit" value="Save" class="btn btn-primary" [disabled]="f.invalid">
+</div>
+
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class="col-lg-6">
+    <div class="quick-quote bx-wrapper padding-20 mb-xl-30">
+    <h5 class="text-custom-black">Add Group Reservation Foyer</h5>
+    
+    <form #fg="ngForm" (ngSubmit)="ajouterGroupe()">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label class="fs-14 text-custom-black fw-500">
+                dateStart : </label>
+              <input class="form-control form-control-custom" type="date" name="dateStartGroupe" [(ngModel)]="reservationFoyer.dateStart" #dateStart="ngModel" required minlength="3">
+                <div class="alert alert-danger" *ngIf="dateStart.touched && dateStart.invalid">
+                    <div *ngIf="dateStart.errors?.['required']">Title is required</div>
+                    <div *ngIf="dateStart.errors?.['minlength']">Title must have at least 3 characters</div>
+                </div>
+    
+                
+                    <label class="fs-14 text-custom-black fw-500">
+                 dateEnd : 
+                </label>
+<input class="form-control form-control-custom" type="date" name="dateEndGroupe" [(ngModel)]="reservationFoyer.dateEnd" #dateEnd="ngModel" required min="1">
+<div class="alert alert-danger" *ngIf="dateEnd.touched && dateEnd.invalid">
+<div *ngIf="dateEnd.errors?.['required']">dateEnd is required</div>
+<div *ngIf="dateEnd.errors?.['min']">dateEnd must a positive number</div>
+</div>
+username : <input class="form-control form-control-custom" type="text" name="usernameGroupe" #username="ngModel" [(ngModel)]="reservationFoyer.username" required min="1">
+
+<div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+<div *ngIf="username.errors?.['required']">Quantity is required</div>
+<div *ngIf="username.errors?.['min']">Quantity must be a number</div>
+</div>
+Groupe Name : <input class="form-control form-control-custom" type="text" name="nameGrp" [(ngModel)]="reservationFoyer.nameGrp" #idRoom="ngModel" required>
+<div class="alert alert-danger" *ngIf="idRoom.touched && idRoom.invalid">
+
+<div>room Id is required</div>
+</div>
+Females number : <input class="form-control form-control-custom" type="number" name="nbrFemale" [(ngModel)]="reservationFoyer.nbrFemale" #idRoom="ngModel" required>
+<div class="alert alert-danger" *ngIf="idRoom.touched && idRoom.invalid">
+
+<div>room Id is required</div>
+</div>
+Males number : <input class="form-control form-control-custom" type="number" name="nbrMale" [(ngModel)]="reservationFoyer.nbrMale" #idRoom="ngModel" required>
+<div class="alert alert-danger" *ngIf="idRoom.touched && idRoom.invalid">
+
+<div>room Id is required</div>
+</div>
+Mixte number : <input class="form-control form-control-custom" type="number" name="nbrMixte" [(ngModel)]="reservationFoyer.nbrMixte" #idRoom="ngModel" required>
+<div class="alert alert-danger" *ngIf="idRoom.touched && idRoom.invalid">
+
+<div>room Id is required</div>
+</div>
+
+<input type="submit" value="Save" class="btn btn-primary" [disabled]="fg.invalid">
+</div>
+
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+</div>
+
+
+{{singleReservationFoyer.dateStart}}
+{{singleReservationFoyer.dateEnd}}
+{{singleReservationFoyer.username}}
+{{singleReservationFoyer.idRoom }}
+{{singleReservationFoyer.expired}}
+<app-footer></app-footer>

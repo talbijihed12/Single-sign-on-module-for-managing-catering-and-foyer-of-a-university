@@ -1,0 +1,180 @@
+<section class="section-padding bg-light-white listing-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="listing-details-inner bx-wrapper bg-custom-white padding-20">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-slider-for mb-xl-20 magnific-gallery">
+                                <div class="slide-item">
+                                    <a [href]="" class="popup">
+                                        <img src="../assets/images/menuu.jpg" class="image-fit" [alt]="">
+                                    </a>
+                                </div>
+                            </div>
+                            <hr>
+                             <div class="listing-meta-sec mb-md-80">
+                                <div class="tabs">
+                                    <ul ngbNav #nav="ngbNav" class="custom-flex nav nav-tabs mb-xl-20">
+                                       <li [ngbNavItem]="1">
+                                            <a ngbNavLink>Détail du Menu </a>
+                                            <ng-template ngbNavContent>
+
+                                                <div class="travel-info bg-light-white">
+                                                    <div class="row no-gutters">
+                                                        <!-- Data -->
+                                                        <div class="col-sm-12"
+                                                          >
+                                                            <div class="head padding-20">
+                                                                 <h5 class="text-custom-black fs-14 fw-500 no-margin"
+                                                                   >
+                                                                    Nom : {{ menus.name }}</h5>
+                                                                 <span class="text-light-dark fs-12"
+                                                                    >
+                                                                    Description : {{menus.description}}</span>
+                                                            </div>
+                                                            <div class="travel-info-body padding-20">
+                                                                <div class="date-wrapper mb-xl-20">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="far fa-clock"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">Type de menu
+                                                                        </p>
+                                                                        <span
+                                                                            class="text-light-dark fs-12">{{menus.typeMenu}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="date-wrapper">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="fas fa-map-marker-alt"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">Type de l'emplacement
+                                                                        </p>
+                                                                        <span
+                                                                            class="text-light-dark fs-12">{{menus.typeEmplacement}}</span>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Data -->
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </li>
+                                        <li [ngbNavItem]="2">
+                                            <a ngbNavLink>Meals</a>
+                                            <ng-template ngbNavContent>
+
+                                                <ul class="custom amenities row no-gutters mb-xl-20">
+                                                    <!-- Data -->
+                                                    <li class="col-sm-6"
+                                                       >
+                                                        <div class="icon-box text-light-dark">
+                                                          <a routerLink="/meal-grid" class="btn-second btn-small">
+                                                            Meals</a>
+                                                        </div>
+                                                        <div class="row">
+
+                                                        </div>
+                                                    </li>
+                                                    <!-- Data -->
+                                                </ul>
+                                                  <div class="need-help bx-wrapper padding-20">
+                                        <h5 class="text-custom-black">Besoin d'aide?</h5>
+                                        <p class="text-light-dark">Nous serions plus qu'heureux de vous aider. Notre équipe
+                                            conseiller sont à votre service 24h/24 et 7j/7 pour vous aider.</p>
+                                        <ul class="custom">
+                                            <li class="text-custom-blue fs-18">
+                                                <i class="fas fa-phone-alt"></i>
+                                                <a href="#" class="text-light-dark">(+347) 123 456 7890</a>
+                                            </li>
+                                            <li class="text-custom-blue fs-18">
+                                                <i class="fas fa-envelope"></i>
+                                                <a href="#" class="text-light-dark fs-14">example@example.com</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                            </ng-template>
+                                        </li>
+                                    </ul>
+                                    <div [ngbNavOutlet]="nav"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                      <!--<div class="col-lg-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="quick-quote bx-wrapper padding-20 mb-xl-30">
+                                        <h5 class="text-custom-black">Enquiry Now</h5>
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Leaving
+                                                            From</label>
+                                                        <input type="text" name="#"
+                                                            class="form-control form-control-custom"
+                                                            placeholder="city, distirct or specific airpot">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Departing
+                                                            On</label>
+                                                        <div class="input-group group-form">
+                                                            <input type="text" name="#"
+                                                                class="form-control form-control-custom datepickr"
+                                                                placeholder="mm/dd/yy" readonly="">
+                                                            <span class="input-group-append">
+                                                                <i class="far fa-calendar"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Going From</label>
+                                                        <input type="text" name="#"
+                                                            class="form-control form-control-custom"
+                                                            placeholder="city, distirct or specific airpot">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Arriving
+                                                            On</label>
+                                                        <div class="input-group group-form">
+                                                            <input type="text" name="#"
+                                                                class="form-control form-control-custom datepickr"
+                                                                placeholder="mm/dd/yy" readonly="">
+                                                            <span class="input-group-append">
+                                                                <i class="far fa-calendar"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Class</label>
+                                                        <div class="group-form">
+                                                            <select
+                                                                class="custom-select form-control form-control-custom" nice-select>
+                                                                <option>Business</option>
+                                                                <option>Economy</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit"
+                                                        class="btn-first btn-submit full-width btn-height">Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                      -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

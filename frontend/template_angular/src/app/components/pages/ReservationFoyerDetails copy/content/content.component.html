@@ -1,0 +1,327 @@
+<section class="section-padding bg-light-white listing-details">
+    <div class="container">
+        <div class="row">
+
+            <div *ngIf="reservationFoyer" class="col-12">
+                <div class="listing-details-inner bx-wrapper bg-custom-white padding-20">
+                    <div class="row">
+                        <div class="col-lg-8">
+
+                            <hr>
+                            <div  class="listing-meta-sec mb-md-80">
+                                <div class="tabs">
+                                    <ul ngbNav #nav="ngbNav" class="custom-flex nav nav-tabs mb-xl-20">
+
+                                        <li [ngbNavItem]="2">
+                                            <a ngbNavLink>Single Reservation Foyer Details</a>
+                                            <ng-template ngbNavContent>
+
+                                                <div class="travel-info bg-light-white"
+                                                   >
+                                                    <div class="row no-gutters">
+                                                        <div class="col-sm-6">
+
+                                                            <div class="travel-info-body padding-20">
+                                                                <div class="date-wrapper mb-xl-20">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="far fa-clock"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">
+                                                                            Date De Debut</p>
+                                                                        <span
+                                                                            class="text-light-dark fs-12">{{reservationFoyer.dateStart | date:'MM/dd/yyyy'}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="date-wrapper">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="fa-male fas"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">Username
+                                                                        </p>
+                                                                        <span
+                                                                            class="text-light-dark fs-12">{{reservationFoyer.username}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="date-wrapper">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="fa-users fas"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">Groupe Name
+                                                                        </p>
+                                                                        <span
+                                                                            class="text-light-dark fs-12">{{reservationFoyer.nameGrp}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="date-wrapper">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="fa-male fas"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">Females number
+                                                                        </p>
+                                                                        <span
+                                                                            class="text-light-dark fs-12">{{reservationFoyer.nbrFemale}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="date-wrapper">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="fa-male fas"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">Mixte number
+                                                                        </p>
+                                                                        <span
+                                                                            class="text-light-dark fs-12">{{reservationFoyer.nbrMixte}}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+
+                                                            <div class="travel-info-body padding-20">
+                                                                <div class="date-wrapper mb-xl-20">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="far fa-clock"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">
+                                                                           Date de Fin </p>
+                                                                        <span
+                                                                            class="text-light-dark fs-12">{{reservationFoyer.dateEnd | date:'MM/dd/yyyy'}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="date-wrapper">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="fa-cogs fas"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">Expired ?
+                                                                        </p>
+                                                                        <span *ngIf="reservationFoyer.expired"
+                                                                            class="text-light-dark fs-12"> Oui </span>
+                                                                            <span *ngIf="!reservationFoyer.expired"
+                                                                            class="text-light-dark fs-12"> non </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="date-wrapper">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="fa-cogs fas"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">Approved ?
+                                                                        </p>
+                                                                        <span *ngIf="reservationFoyer.approved"
+                                                                            class="text-light-dark fs-12"> Oui </span>
+                                                                            <span *ngIf="!reservationFoyer.approved"
+                                                                            class="text-light-dark fs-12"> non </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="date-wrapper">
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                        <i class="fa-male fas"></i>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p class="text-custom-black no-margin">Males number
+                                                                        </p>
+                                                                        <span
+                                                                            class="text-light-dark fs-12">{{reservationFoyer.nbrMale}}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12" *ngIf="showForm">
+                                                            <div class="travel-info-body padding-20">
+                                                              <ul>
+                                                                <div class="date-wrapper">
+                                                                <div class="icon text-custom-blue fs-20">
+                                                                    <i class="fa-hotel fas"></i>
+                                                                </div>
+                                                                    Select Females rooms  :
+
+                                                                    <li *ngFor="let room of roomsFemales">
+                                                                      <input type="checkbox" name="rooms" value="Male" (change)="addItem(room.idR)">
+                                                                      Number of places : {{ room.nbrPlace}}
+                                                                      <br>Number of places occupied : {{ room.placesOcc}}
+                                                                      <br>Room Number : {{ room.number}}
+                                                                      <br>Floor : {{ room.floor}}
+
+                                                                  </li>
+                                                                    <br>
+                                                                    <br>
+                                                                    <div class="icon text-custom-blue fs-20">
+                                                                      <i class="fa-hotel fas"></i>
+                                                                  </div>
+                                                                  Select Males rooms  :
+                                                                  <li *ngFor="let room of roomsMales">
+                                                                    <input type="checkbox" name="rooms" value="Female" (change)="addItem(room.idR)">
+                                                                    <br>Number of places : {{ room.nbrPlace}}
+                                                                    <br>Number of places occupied : {{ room.placesOcc}}
+                                                                    <br>Room Number : {{ room.number}}
+                                                                    <br>Floor : {{ room.floor}}
+
+                                                                </li>
+
+                                                                <br>
+                                                                <div class="icon text-custom-blue fs-20">
+                                                                  <i class="fa-hotel fas"></i>
+                                                              </div>
+                                                                Select Mixte rooms  :
+                                                                <li *ngFor="let room of roomsMixte">
+                                                                  <input type="checkbox" name="rooms" value="Mixte" (change)="addItem(room.idR)">
+                                                                  <br>Number of places : {{ room.nbrPlace}}
+                                                                  <br>Number of places occupied : {{ room.placesOcc}}
+                                                                  <br>Room Number : {{ room.number}}
+                                                                  <br>Floor : {{ room.floor}}
+
+                                                              </li>
+                                                              <br>
+
+                                                                </div>
+
+
+
+
+
+                                                              </ul>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </ng-template>
+                                        </li>
+
+                                    </ul>
+
+                                   <div [ngbNavOutlet]="nav"></div>
+                                   <button type="submit" (click)="cancelReservation()"
+                                   class="btn-first btn-submit full-width btn-height">Cancel Reservation
+                                </button>
+                               <button type="submit" (click)="deleteReservation()"
+                                   class="btn-first btn-submit full-width btn-height">Delete Reservation
+                               </button>
+                               <button type="submit" (click)="onButtonClick(reservationFoyer.id)"class="btn-first btn-submit full-width btn-height">Show QR CODE (5 seconds display)</button>
+                               <img *ngIf="imageUrl" [src]="imageUrl">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="quick-quote bx-wrapper padding-20 mb-xl-30">
+                                        <h5 class="text-custom-black">Update Single Reservation Foyer</h5>
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Date de Debut</label>
+                                                        <div class="input-group group-form">
+                                                            <input type="date" name="#" [(ngModel)]="newdd"
+                                                                class="form-control form-control-custom datepickr"
+                                                                placeholder="">
+                                                            <span class="input-group-append">
+                                                                <i class="far fa-calendar"></i>
+                                                            </span>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Date de fin
+                                                            </label>
+                                                        <div class="input-group group-form">
+                                                            <input type="date" name="#" [(ngModel)]="newdf"
+                                                                class="form-control form-control-custom datepickr"
+                                                                placeholder="aaa" >
+                                                            <span class="input-group-append">
+                                                                <i class="far fa-calendar"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Groupe Name</label>
+                                                        <input type="text" name="#" [(ngModel)]="newroomid"
+                                                            class="form-control form-control-custom"
+                                                            placeholder="{{reservationFoyer.nameGrp}}">
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Males number</label>
+                                                        <input type="number" name="#" [(ngModel)]="newnbrmale"
+                                                            class="form-control form-control-custom"
+                                                            placeholder="{{reservationFoyer.nbrMale}}">
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Females number</label>
+                                                        <input type="number" name="#" [(ngModel)]="newnbrfemale"
+                                                            class="form-control form-control-custom"
+                                                            placeholder="{{reservationFoyer.nbrFemale}}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="fs-14 text-custom-black fw-500">Mixte number</label>
+                                                        <input type="number" name="#" [(ngModel)]="newnbrmixte"
+                                                            class="form-control form-control-custom"
+                                                            placeholder="{{reservationFoyer.nbrMixte}}">
+                                                    </div>
+
+                                                    <button type="submit" (click)="UpdateReservationFoyer()"
+                                                        class="btn-first btn-submit full-width btn-height">Update
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="hotel-grid mb-xl-30"
+                                        *ngFor="let car of ">
+                                        <div class="hotel-grid-wrapper car-grid bx-wrapper">
+                                            <div class="image-sec animate-img">
+                                                <a routerLink="/SingleReservationFoyerDetails/{{car}}">
+                                                    <img [src]="car" class="full-width" [alt]="car">
+                                                </a>
+                                            </div>
+                                            <div class="hotel-grid-caption padding-20 bg-custom-white p-relative">
+                                                <h4 class="title fs-16"><a routerLink="/car-details/{{car}}"
+                                                        class="text-custom-black">{{car}}<small
+                                                            class="text-light-dark">Per
+                                                            day</small></a></h4>
+                                                <span class="price"><small>From</small>${{car |
+                                                    number:'1.0-0'}}</span>
+                                                <div class="action">
+                                                    <a routerLink="/car-details/{{car}}"
+                                                        class="btn-second btn-small">View</a>
+                                                    <a routerLink="/booking"
+                                                        class="btn-first btn-submit yellow">Book</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="need-help bx-wrapper padding-20">
+                                        <h5 class="text-custom-black">Need Help?.</h5>
+                                        <p class="text-light-dark">We would be more than happy to help you. Our team
+                                            advisor are 24/7 at your service to help you.</p>
+                                        <ul class="custom">
+                                            <li class="text-custom-blue fs-18">
+                                                <i class="fas fa-phone-alt"></i>
+                                                <a href="#" class="text-light-dark">(+347) 123 456 7890</a>
+                                            </li>
+                                            <li class="text-custom-blue fs-18">
+                                                <i class="fas fa-envelope"></i>
+                                                <a href="#" class="text-light-dark fs-14">example@example.com</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

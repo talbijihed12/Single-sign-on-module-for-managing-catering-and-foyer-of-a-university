@@ -1,0 +1,256 @@
+<section class="section-padding section our-services-sec bg-light-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-heading">
+        <h3 class="text-custom-black">Our Menus</h3>
+        <div class="section-description">
+          <p class="text-light-dark"></p>
+        </div>
+      </div>
+      <div class="section-btn mb-xl-20">
+        <a
+          (click)="open(mymodal)"
+          style="cursor: pointer"
+          class="btn-first btn-small"
+          >Add new menu
+          <i style="cursor: pointer" class="fas fa-solid fas fa-pen"> </i
+        ></a>
+
+        <ng-template #mymodal let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Add new menu</h4>
+            <button
+              type="button"
+              class="close"
+              aria-label="Close"
+              (click)="modal.dismiss('Cross click')"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #myForm="ngForm" (ngSubmit)="addmenu(menus)">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Name"
+                  type="text"
+                  name="name"
+                  [(ngModel)]="menu.name"
+                  #name="ngModel"
+                  required
+                  min="1"
+                />
+                <div
+                  class="alert alert-danger"
+                  *ngIf="name.touched && name.invalid"
+                >
+                  <div *ngIf="name.errors?.['required']">Name is required</div>
+                  <div *ngIf="name.errors?.['minlength']">
+                    Name must have at least 3 characters
+                  </div>
+                </div>
+                <br />
+                <input
+                  placeholder="Description"
+                  class="form-control"
+                  type="text"
+                  name="description"
+                  [(ngModel)]="menu.description"
+                  #description="ngModel"
+                  required
+                  min="1"
+                />
+              </div>
+              <hr />
+              <h6>Choose your types</h6>
+              <select
+                class="browser-default custom-select"
+                name="typeEmplacement"
+                #datestart="ngModel"
+                [(ngModel)]="menu.typeEmplacement"
+                required
+              >
+                <option value="Petit_déjeuner">Breakfast</option>
+                <option value="Déjeuner">Lunch</option>
+                <option value="Diner">Diner</option>
+              </select>
+              <br /><br />
+
+              <select
+                class="browser-default custom-select"
+                name="typeMenu"
+                #typeMenu="ngModel"
+                [(ngModel)]="menu.typeMenu"
+              >
+                <option value="Personnalisé">Personnalisé</option>
+                <option value="Standard">Standard</option>
+              </select>
+              <br /><br />
+              <input
+                type="submit"
+                value="Save"
+                class="btn btn-primary"
+                [disabled]="myForm.invalid"
+              />
+            </form>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="row">
+
+      <!-- Data -->
+      <div class="col-lg-6" *ngFor="let item of menus | slice : 0 : 4">
+        <div class="service-box p-relative mb-xl-30">
+          <div class="service-wrapper bg-custom-white bx-wrapper">
+
+            <div class="service-img animate-img">
+              <a>
+                <img
+                  src="../assets/images/menuu.jpg"
+                  class="image-fit"
+                  [alt]="item.id"
+                />
+              </a>
+            </div>
+            <div class="service-text padding-15">
+
+              <a
+                routerLink="/menu-details/{{ item.id }}"
+                class="text-custom-black"
+                ><span
+                  class="badge badge-warning badge-pill"
+                  style="font-size: 14px"
+                >
+                  <i class="fas fa-solid fa-utensils"></i>  Menu {{ item.id }}
+                </span></a
+              >
+              <hr />
+              <h5>
+                <a
+                  routerLink="/menu-details/{{ item.id }}"
+                  class="text-custom-black"
+                >
+                  {{ item.name }}</a
+                >
+              </h5>
+
+              <p class="text-custom-black">{{ item.description }}</p>
+              <p class="text-light-dark">
+                type Emplacement : {{ item.typeEmplacement }}
+              </p>
+              <p class="text-light-dark">type Menu : {{ item.typeMenu }}</p>
+              <hr />
+
+              <a
+                (click)="deleteMenu(item.id)"
+                style="cursor: pointer"
+                class="btn-second btn-small"
+              >
+                DELETE
+                <i
+                  style="cursor: pointer"
+                  class="fas fa-sharp fas fa-solid fas fa-trash"
+                  style="font-size: 14px; color: #ef1111"
+                >
+                </i
+              ></a>
+              <a
+                (click)="open(mymodal)"
+                class="btn-second btn-small"
+                style="cursor: pointer"
+              >
+                EDIT
+                <i
+                  style="cursor: pointer"
+                  class="fas fa-solid fas fa-pen"
+                  style="font-size: 14px; color: #c8ec29"
+                >
+                </i>
+              </a>
+
+              <ng-template #mymodal let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">
+                    Update the menu !
+                  </h4>
+                  <button
+                    type="button"
+                    class="close"
+                    aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"
+                  >
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form #myForm="ngForm" (ngSubmit)="editmenu(item.id, item)">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-custom"
+                        ngModel
+                        name="name"
+                        #name="ngModel"
+                        [(ngModel)]="item.name"
+                        required
+                      /><br />
+                      <input
+                        type="text"
+                        class="form-control form-control-custom"
+                        ngModel
+                        name="description"
+                        #description="ngModel"
+                        [(ngModel)]="item.description"
+                        required
+                      />
+                      <hr />
+                      <span
+                        class="badge badge-warning badge-pill"
+                        style="font-size: 14px"
+                        >EDIT TYPES
+                      </span>
+                      <br /><br />
+                      <select
+                        class="browser-default custom-select"
+                        name="typeEmplacement"
+                        #datestart="ngModel"
+                        [(ngModel)]="item.typeEmplacement"
+                        required
+                      >
+                        <option value="Petit_déjeuner">Breakfast</option>
+                        <option value="Déjeuner">Lunch</option>
+                        <option value="Diner">Diner</option>
+                      </select>
+                      <br /><br />
+                      <select
+                        class="browser-default custom-select"
+                        name="typeMenu"
+                        #typeMenu="ngModel"
+                        [(ngModel)]="item.typeMenu"
+                      >
+                        <option value="Personnalisé">Personnalisé</option>
+                        <option value="Standard">Standard</option>
+                      </select>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="submit"
+                    class="btn btn-outline-dark"
+                    (click)="editmenu(item.id, item)"
+                  >
+                    save changes
+                  </button>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Data -->
+    </div>
+  </div>
+</section>

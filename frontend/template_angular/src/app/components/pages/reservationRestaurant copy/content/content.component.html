@@ -1,0 +1,82 @@
+
+<section class="section-padding bg-light-white">
+    <div class="container">
+        <div class="row">
+            <aside class="col-lg-4">
+                <div class="sidebar_wrap mb-md-80">
+                    <ReservationFoyer-sidebar></ReservationFoyer-sidebar>
+                </div>
+            </aside>
+
+                    <!-- Data -->
+
+
+                    <div  class="col-lg-8" *ngIf="products">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="listing-top-heading mb-xl-20">
+                                        <h6 class="no-margin text-custom-black">Showing {{products.length}} Results</h6>
+
+                                    </div>
+                                </div>
+
+
+
+
+                            <div class="col-md-6" *ngFor="let item of products | paginate: { itemsPerPage: 8, currentPage: page }">
+                         <div class="flights-grid mb-xl-30">
+                            <div class="flights-grid-wrapper bx-wrapper">
+                                <div class="image-sec animate-img">
+                                    <a routerLink="/flight-details/{{item.idR}}">
+                                       <!-- <img [src]="item.image" class="full-width" [alt]="item.title"> -->
+                                    </a>
+                                </div>
+                                <div class="flights-grid-caption padding-20 bg-custom-white p-relative">
+                                    <div class="heading-sec">
+                                        <div class="left-side">
+                                            <!--<i class="fas fa-plane text-gray"></i>-->
+                                            <div class="title">
+                                                <h4 class="fs-16">
+                                                    <a routerLink="/SingleReservationFoyerDetails/{{item.idR}}"
+                                                        class="text-custom-black"> Date de Debut :<br> {{item.dateStart | date:'MM/dd/yyyy'}}</a>
+                                                        <h4 class="fs-16">
+                                                            <a routerLink="/SingleReservationFoyerDetails/{{item.idR}}"
+                                                                class="text-custom-black"> Date de Fin : <br> {{item.dateEnd | date:'MM/dd/yyyy'}}</a>
+                                                            </h4>
+                                                </h4>
+                                            </div> <br>
+
+
+                                        </div>
+                                        <div class="right-side">
+                                            <span class="price"><small>Username :</small>{{item.username}}</span>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="action">
+                                        <a routerLink="/ReservationFoyerDetails/{{item.idR}}"
+                                            class="btn-second btn-small">View</a>
+                                        <a routerLink="/SingleReservationFoyerDetails" class="btn-first btn-submit">Book</a>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         </div>
+                            </div>
+                        </div>     <!-- Data -->
+        </div>
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="pagination_layout section-padding-top">
+                            <ul class="pagination justify-content-center">
+                                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+        </div>
+
+</section>

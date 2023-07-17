@@ -1,0 +1,68 @@
+<section class="section-padding bg-light-white">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="listing-top-heading mb-xl-20">
+
+
+<section class="container">
+     <hr>
+        <h3 style="margin-left: 400px;">Statistics of claims</h3>
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 col-md-12 post mb-xl-30">
+                <div class="card">
+                  <div class="card-header">
+                    <h6>Number Of Claims By Status</h6>
+                  </div>
+            <div class="card-body">
+              <canvas baseChart type="doughnut"
+              [data]="dataReclamation"></canvas>
+            </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 post mb-xl-30">
+              <div class="card">
+                <div class="card-header">
+                  <h6>Number Of Claims By Type</h6>
+                </div>
+          <div class="card-body">
+            <canvas baseChart type="doughnut"
+            [data]="dataType"></canvas>
+          </div>
+            </div>
+          </div>
+
+            <div class="col-lg-6 col-md-12 post mb-xl-30" style="margin-left: 300px;">
+              <div class="card">
+                <div class="card-header">
+                  <h6>Number Of Claims By Status</h6>
+                </div>
+          <div class="card-body">
+            <canvas baseChart type="bar"
+            [data]="dataMixed" [options]="chartOptions"></canvas>
+          </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+</section>
+</div>
+</div>
+</div>
+</div>
+</section>

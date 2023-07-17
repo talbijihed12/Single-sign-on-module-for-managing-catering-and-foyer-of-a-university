@@ -1,0 +1,134 @@
+<section class="section-padding bg-light-white listing-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="listing-details-inner bx-wrapper bg-custom-white padding-20">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-slider-for mb-xl-20 magnific-gallery">
+                                
+                                <!--<div *ngFor="let attach of attachements">
+                                <div class="card" *ngIf="attach?.length>1">
+                                    <div class="card-header">
+                                      <h1>File</h1>
+                                    </div>
+                                    <div class="card-body">
+                                    
+                                      <ul>
+                                        <li><a href="http://localhost:8091/upload/files/{{attach.path}}">{{attach.path}}</a></li>
+                                      </ul>
+                                      
+                                    
+                                  
+                                    </div>
+                                </div>
+                                </div>-->
+                                
+                            <hr>
+                             <div class="listing-meta-sec mb-md-80">
+                                <div class="tabs">
+                                    <button  style="width: 100px; margin-left: 980px;" class="p-button-rounded p-button-danger p-button-outlined form-control-custom" [disabled]="claims.status !== 'EN_COURS'&& claims.status !== 'MODIFIER' && claims.status == 'RETOUR'" (click)="openModal()">Unclear</button>
+
+                                    <ul ngbNav #nav="ngbNav" class="custom-flex nav nav-tabs mb-xl-20">
+                                       <li [ngbNavItem]="3">
+
+                                            <a ngbNavLink>Detail of claims </a>
+                                            
+                                            <ng-template ngbNavContent>
+
+                                                <div class="travel-info bg-light-white">
+                                                    <div class="row no-gutters">
+                                                        <!-- Data -->
+                                                        <div class="col-sm-12"
+                                                          >
+                                                            <div class="head padding-20">
+                                                                 <h5 class="text-custom-black fs-14 fw-500 no-margin">
+                                                                    Title : {{ claims.title }}</h5>
+                                                                    
+                                                            </div>
+                                                            <div class="head padding-20">
+                                                                
+                                                                   <h5 class="text-custom-black fs-14 fw-500 no-margin">
+                                                                   Description : {{claims.description}}</h5>
+                                                           </div>
+                                                           <div class="head padding-20">
+                                                                
+                                                            <h5 class="text-custom-black fs-14 fw-500 no-margin">
+                                                            Status : {{claims.status}}</h5>
+                                                         </div>
+                                                         <div class="head padding-20">
+                                                                
+                                                            <h5 class="text-custom-black fs-14 fw-500 no-margin">
+                                                            Type of claims : {{claims.typeReclamation}}</h5>
+                                                         </div>
+                                                         <div class="head padding-20">
+                                                                
+                                                            <h5 class="text-custom-black fs-14 fw-500 no-margin">
+                                                            Date diffusion : {{claims.dateDiff | date: 'dd/MM/yyyy'}}</h5>
+                                                         </div>
+                                                        
+                                                         
+                                                            
+                                                        </div>
+                                                       
+                                                        
+                                                        <!-- Data -->
+                                                    </div>
+                                                    <!--<div class="head padding-20">
+                                                        <h5 class="text-custom-black fs-14 fw-500 no-margin">
+                                                            File :</h5>
+                                                        <div class="card-body">
+                                                        <div *ngFor="let attach of attachements">
+                                                          <ul>
+                                                            <li><a href="http://localhost:8091/upload/files/{{attach.path}}">{{attach.path}}</a></li>
+                                                          </ul>
+                                                          
+                                                      
+                                                      </div>
+                                                          </div>
+                                                      </div>-->
+                                                    
+                                                    
+                                                </div><br>
+                                                <div class="action" style="margin-left: 920px;">
+                                                    <a routerLink="/claim-list-admin" class="btn-submit btn-primary form-control-custom">Back</a>
+                                                    <a routerLink="/details-claims-admin/{{claims.id}}" class="btn-submit btn-success form-control-custom" (click)="resolve(claims)">Resolve</a>
+                                                    
+                                                </div>
+
+                                                
+                                                
+                                            </ng-template>
+                                        </li>
+                                        
+                                    </ul>
+                                    <div [ngbNavOutlet]="nav"></div>
+                                </div>
+                                <button class="btn-first" value="submit"></button>
+                            </div>
+
+                        </div>
+                        <form *ngIf="showModal" header="Retourner la réclamation" (onClose)="showModal = false">
+                            <form (ngSubmit)="retourner(claims)">
+                              <div class="form-group">
+                                <strong>Cause</strong>
+                                <textarea [(ngModel)]="claims.cause" name="cause" class="form-control" rows="3" required></textarea>
+                              </div>
+                              <button routerLink="/claim-list-admin" type="submit" class="btn-submit btn-primary form-control-custom" style=" margin-left: 980px; width: 100px;">Valid</button>
+                            </form>
+                        </form>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    
+</section>
+
+
+
+
+

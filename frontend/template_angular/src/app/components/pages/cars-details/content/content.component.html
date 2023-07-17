@@ -1,0 +1,95 @@
+<section class="section-padding bg-light-white">
+  <div class="container">
+      <div class="row">
+          <aside class="col-lg-4">
+              <div class="sidebar_wrap mb-md-80">
+                  <app-car-sidebar></app-car-sidebar>
+              </div>
+          </aside>
+          <div class="col-lg-8">
+              <div class="row">
+                  <div class="col-12">
+
+                      <div class="listing-top-heading mb-xl-20">
+                        <input name="search" class="form-control form-control-custom "[(ngModel)]="searchtxt">
+                        <a (click)="search()" class="btn-first btn-submit yellow">Search</a>
+                        <h6 class="no-margin text-custom-black"> {{rooms.length}}Rooms</h6>
+
+                          <div class="sort-by">
+                              <span class="text-custom-black fs-14 fw-600"></span>
+                              <div class="group-form">
+
+                              </div>
+                          </div>
+                      </div>
+                      <div class="listing-top-heading mb-xl-20">
+                      <button (click)="Bilan()" class="btn-first btn-submit yellow"  >
+                        Room empty </button>
+                        <h6>Room empty : {{nbr}}</h6>
+                        <button (click)="Bilan1()" class="btn-first btn-submit yellow "  >
+                          Room Occ </button>
+                          <h6>Room Occ : {{nbr1}}</h6>
+                      </div>
+                  </div>
+
+                  <!-- Data -->
+
+                  <div class="col-md-6"
+                      *ngFor="let item of rooms">
+                      <div class="hotel-grid mb-xl-30">
+                          <div class="hotel-grid-wrapper car-grid bx-wrapper">
+                              <div class="image-sec animate-img">
+                                  <a routerLink="/car-details/{{item.idR}}">
+                                    <img src="..\assets\images\chambre.png" class="full-width" [alt]="">
+
+                                  </a>
+
+
+
+                              </div>
+                              <div class="hotel-grid-caption padding-20 bg-custom-white p-relative">
+                                  <h4 class="title fs-16"><a routerLink="/car-details/{{item.idR}}"
+                                          class="text-custom-black">Floor : {{item.floor}}
+                                          <h6 class="text-light-dark">Number : {{item.number}}</h6>
+                                          <small class="text-light-dark">Places :{{item.nbrPlace}}</small>
+                                          <small class="text-light-dark">place Occ :{{item.placesOcc}}</small>
+
+
+                                      </a></h4>
+
+                                  <div class="action">
+                                      <a routerLink="/car-grid-right/{{item.idR}}" class="btn-second btn-small">UPDATE</a>&nbsp;
+                                      <a (click)="BookPlace(item.idR)"  class="btn-first btn-submit yellow" [attr.disabled]="item.placesOcc == item.nbrPlace" >Book </a>&nbsp;
+                                      <a (click)="UnBookPlace(item.idR)"  class="btn-first btn-submit yellow" [attr.disabled]="(item.placesOcc) == 0" >Unbook  </a>&nbsp;
+                                      <a (click)="deleteRoom(item.idR)" class="btn-second btn-small" >Delete</a>
+
+                                  </div>
+
+                                  <!-- <div class="action">
+                                  <button class="btn-first btn-submit yellow" (click)="BookPlace(item.idR)" [disabled]="item.placesOcc == item.placesOcc" > Book</button>
+                                </div> -->
+                              </div>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+                  <a routerLink="/car-details/1" class="btn-second btn-small">Rooms</a>&nbsp;
+
+
+
+
+                  <!-- Data -->
+              </div>
+              <div class="row">
+                  <div class="col-12">
+                      <nav class="pagination_layout section-padding-top">
+
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

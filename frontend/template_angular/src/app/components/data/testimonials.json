@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "rating":5,
+        "text": "1 No Poverty we want to bring attention to the first Sustainable Development Goal (SDG) No Poverty. Despite progress in reducing poverty rates globally, there are still too many people living in extreme poverty, struggling to meet their basic needs We all have a role to play in the fight against poverty. Whether it’s volunteering at a local charity, advocating for policy changes, or using our purchasing power to support fair trade products, every action counts .",        "author": [
+            1
+        ]
+    },
+    {
+        "id": 2,
+        "rating":3,
+        "text": "15 Life on land A flourishing life on land is the foundation for our life on this planet. We are all part of the planet’s ecosystem and we have caused severe damage to it through deforestation, loss of natural habitats and land degradation. Promoting a sustainable use of our ecosystems and preserving biodiversity is not a cause. It is the key to our own survival We will therefore use in each meal the plastic (plates of plastic cups) to be recycled.",        "author": [
+            2
+        ]
+    },
+    {
+        "id": 3,
+        "rating":4,
+        "text": "8 decent work and economic growth Economic growth is defined as an increase in the production of goods and services in a country. Because economic growth measures the value of the goods being produced, rather than just the quantity, metrics like Gross Domestic Product (GDP) are often used.",        "author": [
+            3
+        ]
+    },
+    {
+        "id": 4,
+        "rating":4,
+        "text": "Quality education is education broadened to cross-curricular skills. These are what make students grow, allow them to build relationships with others, to think with discernment and to open up to the challenges of the world.",
+        "author": [
+            5
+        ]
+    }
+]
